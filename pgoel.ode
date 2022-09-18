@@ -6,5 +6,5 @@ G'=R0-(EG0+SI*I)*G+kgut*qgut
 I'=Imax*(G^2/(alpha+G^2))-kI*I
 init G=70,I=9,qsto=10,qgut=0
 par ksto=0.036,kgut=0.098,R0=2.1,EG0=0.001,SI=0.00306,Imax=0.28,alpha=10000,kI=0.01,tau=100
-@ xp=I,yp=GG,xlo=0,xhi=20,ylo=50,yhi=100,total=200,delay=500
+@ xp=I,yp=G,xlo=0,xhi=20,ylo=50,yhi=100,total=200,delay=500
 done
