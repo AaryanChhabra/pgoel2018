@@ -1,13 +1,10 @@
 #pgoel
 qsto'=-ksto*qsto
-qgut'=ksto*qsto-kgut*qgut
-GG'=R0-(EG0+SI*I)*GG+kgut*qgut
-I'=Imax*(GG^2/(alpha+GG^2))-kI*I
-aux Glucose=delay(GG,tau)
-aux qstomach=delay(qsto,tau)
-aux qgutt=delay(qgut,tau)
-aux Insulin=delay(I,tau)
-init GG=70,I=9,qsto=10,qgut=0
+qstomach=delay(qsto,tau)
+qgut'=ksto*qstomach-kgut*qgut
+G'=R0-(EG0+SI*I)*G+kgut*qgut
+I'=Imax*(G^2/(alpha+G^2))-kI*I
+init G=70,I=9,qsto=10,qgut=0
 par ksto=0.036,kgut=0.098,R0=2.1,EG0=0.001,SI=0.00306,Imax=0.28,alpha=10000,kI=0.01,tau=100
 @ xp=I,yp=GG,xlo=0,xhi=20,ylo=50,yhi=100,total=200,delay=500
 done
