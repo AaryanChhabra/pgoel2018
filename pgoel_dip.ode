@@ -1,14 +1,15 @@
 #pgoel
+# defining differential equations
 qsto'=-ksto*(qsto)
 qgut'=ksto*qsto-kgut*qgut
 G'=-I+fac(G)+kgut*qgut
-NF=(2.1/(0.003*G))-0.333
-PF=if(G>5)then((aa)*(((G+jj)*kk)^3)+bb*(((G+jj)*kk)^2)-cc*((G+jj)*kk)+dd)else(-1000*(G-10))
+NF=(2.1/(0.003*G))-0.333 # defining a new function for the modified function
+PF=if(G>5)then((aa)*(((G+jj)*kk)^3)+bb*(((G+jj)*kk)^2)-cc*((G+jj)*kk)+dd)else(-1000*(G-10)) # Modified model
 fac(G)=if(G>69.4)then(NF)else(PF)
 I'=Imax*(G^2/(alpha+G^2))-kI*I^qq
 global -1 pp1-t {qsto=200}
 #it will set the value of qsto to 200 when pp-t becomes negative (or when t reaches pp)
-init qsto=0,G=69.4,I=9.7,qgut=0
-par ksto=0.036,kgut=0.098,R0=2.1,EG0=0.001,SI=0.00306,Imax=0.3,alpha=10000,kI=0.01,pp1=100,qq=1,aa=-2620,jj=28.9,kk=0.0026,bb=1943,cc=453,dd=42.35156
+init qsto=0,G=69.4,I=9.7,qgut=0 # Initial Conditions
+par ksto=0.036,kgut=0.098,R0=2.1,EG0=0.001,SI=0.00306,Imax=0.3,alpha=10000,kI=0.01,pp1=100,qq=1,aa=-2620,jj=28.9,kk=0.0026,bb=1943,cc=453,dd=42.35156 #parameters
 @ xp=G,yp=I,xlo=0,xhi=500,ylo=0,yhi=50,total=1000,dt=0.01,bound=10000,nmesh=1000
 done
